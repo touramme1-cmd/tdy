@@ -16,18 +16,22 @@ export const employers = pgTable("employers", {
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 
-// Jobs table with bilingual fields
+// Jobs table with trilingual fields (Arabic/English/French)
 export const jobs = pgTable("jobs", {
   id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
   slug: text("slug").notNull().unique(),
   titleEn: text("title_en").notNull(),
   titleAr: text("title_ar").notNull(),
+  titleFr: text("title_fr"),
   descriptionEn: text("description_en").notNull(),
   descriptionAr: text("description_ar").notNull(),
+  descriptionFr: text("description_fr"),
   responsibilitiesEn: text("responsibilities_en"),
   responsibilitiesAr: text("responsibilities_ar"),
+  responsibilitiesFr: text("responsibilities_fr"),
   requirementsEn: text("requirements_en"),
   requirementsAr: text("requirements_ar"),
+  requirementsFr: text("requirements_fr"),
   country: text("country").notNull(), // KSA, UAE, QAT
   city: text("city").notNull(),
   category: text("category").notNull(),
