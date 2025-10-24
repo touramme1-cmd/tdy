@@ -14,8 +14,8 @@ interface JobCardProps {
 export default function JobCard({ job }: JobCardProps) {
   const { t, lang } = useI18n();
 
-  const title = lang === 'ar' ? job.titleAr : job.titleEn;
-  const description = lang === 'ar' ? job.descriptionAr : job.descriptionEn;
+  const title = lang === 'ar' ? job.titleAr : lang === 'fr' ? (job.titleFr || job.titleEn) : job.titleEn;
+  const description = lang === 'ar' ? job.descriptionAr : lang === 'fr' ? (job.descriptionFr || job.descriptionEn) : job.descriptionEn;
   
   const countryKey = job.country.toLowerCase() as 'ksa' | 'uae' | 'qat';
   const countryName = t(`country.${countryKey}`);
