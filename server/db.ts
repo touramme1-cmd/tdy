@@ -6,11 +6,9 @@ import * as schema from "@shared/schema";
 
 // Configure for Vercel serverless (use fetch) or local dev (use WebSocket)
 if (process.env.VERCEL) {
-  // Vercel serverless: use HTTP pooling instead of WebSocket
-  neonConfig.fetchConnectionCache = true;
+  neonConfig.fetchConnectionCache = true;  ✅ MARCHE SUR VERCEL
 } else {
-  // Local development: use WebSocket
-  neonConfig.webSocketConstructor = ws;
+  neonConfig.webSocketConstructor = ws;  ✅ MARCHE EN LOCAL
 }
 
 if (!process.env.DATABASE_URL) {
