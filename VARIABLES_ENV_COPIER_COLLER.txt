@@ -1,0 +1,19 @@
+═══════════════════════════════════════════════════════════════════
+    🔥 COPIER-COLLER RAPIDE POUR VERCEL
+═══════════════════════════════════════════════════════════════════
+
+Sur Vercel, pendant l'import du projet, cherchez le lien :
+"or paste the .env contents above"
+
+Puis COPIER-COLLER exactement ce texte ci-dessous :
+
+───────────────────────────────────────────────────────────────────
+DATABASE_URL="postgresql://neondb_owner:npg_bjzeivPXgq21@ep-proud-poetry-a4f0e8g3-pooler.us-east-1.aws.neon.tech/neondb?sslmode=require"
+SESSION_SECRET="8b86a3a4d7adeb903db0b0e35f82ff54af6830804e8d20bbf2dce89e8641e8bc"
+NODE_ENV="production"
+GOOGLE_SHEET_WEBHOOK_URL="https://script.google.com/macros/s/AKfycbx1l-HBoUCEM9lSUJF7cdjejrXt9n_3qjo1Ox2pk1-YWL5BeUZ89rhVNp7Pcjb1NYWl/exec"
+───────────────────────────────────────────────────────────────────
+
+✅ Ça va créer automatiquement les 4 variables d'environnement !
+
+═══════════════════════════════════════════════════════════════════

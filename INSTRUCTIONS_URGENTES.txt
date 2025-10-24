@@ -1,0 +1,94 @@
+═══════════════════════════════════════════════════════════════════
+    🚨 CORRECTION URGENTE - tw-animate-css
+═══════════════════════════════════════════════════════════════════
+
+PROBLÈME :
+---------
+Votre déploiement a échoué avec :
+  npm error notarget No matching version found for tw-animate-css@^2.0.8
+
+CAUSE :
+-------
+La version 2.0.8 n'existe pas sur npm.
+Version disponible : 1.4.0
+
+CORRECTION :
+------------
+J'ai corrigé package.VERCEL.json :
+  "tw-animate-css": "^2.0.8"  →  "tw-animate-css": "^1.4.0"
+
+═══════════════════════════════════════════════════════════════════
+
+SOLUTION RAPIDE (2 MÉTHODES)
+═══════════════════════════════════════════════════════════════════
+
+MÉTHODE 1 : RE-TÉLÉCHARGER TOUT (RECOMMANDÉ)
+---------------------------------------------
+
+1. Replit → ⋮ → Download as ZIP
+
+2. Extraire le dossier
+
+3. Remplacer les 2 fichiers :
+   - Supprimer :  package.json
+   - Renommer :   package.VERCEL.json  →  package.json
+   - Supprimer :  vite.config.ts
+   - Renommer :   vite.config.VERCEL.ts  →  vite.config.ts
+
+4. Sur GitHub, faire un nouveau commit :
+   - Aller dans votre repo "neww"
+   - Cliquer sur package.json
+   - Cliquer "Edit"
+   - Supprimer tout le contenu
+   - Copier-coller le contenu du nouveau package.json (version corrigée)
+   - Commit changes
+
+5. Sur Vercel :
+   - Cliquer "Redeploy"
+
+═══════════════════════════════════════════════════════════════════
+
+MÉTHODE 2 : MODIFIER DIRECTEMENT SUR GITHUB (PLUS RAPIDE)
+----------------------------------------------------------
+
+1. Aller sur : github.com/touramme1-cmd/neww
+
+2. Cliquer sur le fichier "package.json"
+
+3. Cliquer sur l'icône "✏️ Edit"
+
+4. Chercher la ligne (CTRL+F) :
+   "tw-animate-css": "^2.0.8",
+
+5. Remplacer par :
+   "tw-animate-css": "^1.4.0",
+
+6. Cliquer "Commit changes"
+
+7. Sur Vercel, cliquer "Redeploy"
+
+═══════════════════════════════════════════════════════════════════
+
+VÉRIFICATION AVANT REDÉPLOIEMENT
+═══════════════════════════════════════════════════════════════════
+
+Assurez-vous que dans votre package.json :
+
+✅ PAS de packages @replit (lignes 86-88 supprimées)
+✅ tw-animate-css version ^1.4.0 (ligne 81)
+✅ Tous les autres packages intacts
+
+═══════════════════════════════════════════════════════════════════
+
+RÉSULTAT ATTENDU
+═══════════════════════════════════════════════════════════════════
+
+npm install
+✓ Dependencies installed (8-10s)
+
+npm run build:frontend
+✓ built in 10-15s
+
+Deployment successful ✓
+
+═══════════════════════════════════════════════════════════════════

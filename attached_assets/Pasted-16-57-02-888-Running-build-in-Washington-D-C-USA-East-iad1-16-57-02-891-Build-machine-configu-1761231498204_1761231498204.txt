@@ -1,0 +1,34 @@
+16:57:02.888 Running build in Washington, D.C., USA (East) – iad1
+16:57:02.891 Build machine configuration: 2 cores, 8 GB
+16:57:03.070 Cloning github.com/touramme1-cmd/koll (Branch: main, Commit: 5d55000)
+16:57:03.606 Previous build caches not available
+16:57:04.189 Cloning completed: 1.118s
+16:57:04.719 Running "vercel build"
+16:57:05.106 Vercel CLI 48.2.9
+16:57:05.837 Running "install" command: `npm install`...
+16:57:10.060 npm warn deprecated node-domexception@1.0.0: Use your platform's native DOMException instead
+16:57:14.255 
+16:57:14.256 added 459 packages, and audited 460 packages in 8s
+16:57:14.256 
+16:57:14.257 65 packages are looking for funding
+16:57:14.257   run `npm fund` for details
+16:57:14.260 
+16:57:14.260 3 low severity vulnerabilities
+16:57:14.260 
+16:57:14.260 To address all issues, run:
+16:57:14.260   npm audit fix
+16:57:14.261 
+16:57:14.261 Run `npm audit` for details.
+16:57:15.236 npm warn exec The following package was not found and will be installed: vite@7.1.12
+16:57:29.088 [31mfailed to load config from /vercel/path0/vite.config.ts[39m
+16:57:29.089 [31merror during build:
+16:57:29.089 Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'vite' imported from /vercel/path0/node_modules/.vite-temp/vite.config.ts.timestamp-1761231449084-32c3acf08aa7e.mjs
+16:57:29.089     at packageResolve (node:internal/modules/esm/resolve:873:9)
+16:57:29.089     at moduleResolve (node:internal/modules/esm/resolve:946:18)
+16:57:29.089     at defaultResolve (node:internal/modules/esm/resolve:1188:11)
+16:57:29.089     at ModuleLoader.defaultResolve (node:internal/modules/esm/loader:642:12)
+16:57:29.089     at #cachedDefaultResolve (node:internal/modules/esm/loader:591:25)
+16:57:29.089     at ModuleLoader.resolve (node:internal/modules/esm/loader:574:38)
+16:57:29.089     at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:236:38)
+16:57:29.089     at ModuleJob._link (node:internal/modules/esm/module_job:130:49)[39m
+16:57:29.107 Error: Command "npx vite build" exited with 1

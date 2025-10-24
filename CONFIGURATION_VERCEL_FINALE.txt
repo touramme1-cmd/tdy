@@ -1,0 +1,70 @@
+═══════════════════════════════════════════════════════════════════
+    CONFIGURATION VERCEL - À COPIER EXACTEMENT
+═══════════════════════════════════════════════════════════════════
+
+⚠️  LE ROOT DIRECTORY "./", C'EST NORMAL - NE PAS ESSAYER DE LE SUPPRIMER
+
+✅ CONFIGURATION EXACTE (sans guillemets, sans espaces) :
+
+┌────────────────────────────────────────────────────────────┐
+│                                                            │
+│ Root Directory:     ./                                     │
+│                     ↑ LAISSER TEL QUEL                     │
+│                                                            │
+│ Framework Preset:   Other                                  │
+│                                                            │
+│ Build Command:      vite build                            │
+│                     ↑ PAS de guillemets                    │
+│                     ↑ PAS npm run build                    │
+│                                                            │
+│ Output Directory:   dist/public                            │
+│                     ↑ PAS de guillemets                    │
+│                     ↑ AVEC /public                         │
+│                                                            │
+│ Install Command:    npm install                            │
+│                     ↑ PAS de guillemets                    │
+│                     ↑ PAS d'espace à la fin                │
+│                                                            │
+│ Node.js Version:    20.x                                   │
+│                                                            │
+└────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════
+
+📋 ÉTAPES EXACTES POUR CORRIGER :
+
+1. Cliquer sur "Edit" à côté de "Build Command"
+2. EFFACER tout (Ctrl+A puis Delete)
+3. Taper : vite build
+4. Sauvegarder
+
+5. Cliquer sur "Edit" à côté de "Output Directory"
+6. EFFACER tout
+7. Taper : dist/public
+8. Sauvegarder
+
+9. Cliquer sur "Edit" à côté de "Install Command"
+10. EFFACER tout
+11. Taper : npm install
+12. Sauvegarder
+
+13. Deploy !
+
+═══════════════════════════════════════════════════════════════════
+
+✅ VÉRIFICATION AVANT DEPLOY :
+
+□ Root Directory = ./ (normal, ne pas toucher)
+□ Build Command = vite build (SANS guillemets)
+□ Output Directory = dist/public (SANS guillemets)
+□ Install Command = npm install (SANS espace à la fin)
+□ 4 variables d'environnement ajoutées
+
+═══════════════════════════════════════════════════════════════════
+
+⚡ L'ERREUR PRÉCÉDENTE :
+
+Vous aviez : 'npm install '  ← guillemets + espace
+Maintenant : npm install     ← propre
+
+═══════════════════════════════════════════════════════════════════

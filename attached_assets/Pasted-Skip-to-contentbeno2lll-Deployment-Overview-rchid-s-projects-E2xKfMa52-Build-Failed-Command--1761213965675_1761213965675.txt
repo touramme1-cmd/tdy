@@ -1,0 +1,135 @@
+Skip to contentbeno2lll – Deployment Overview
+rchid's projects
+
+E2xKfMa52
+
+
+
+
+Build Failed
+Command "npm run build" exited with 254
+
+Created
+touramme1-7260 Avatar
+touramme1-7260
+Just now
+Status
+Error
+Latest
+Duration
+4s
+Just now
+Environment
+Production
+Domains
+beno2lll-git-main-rchids-projects.vercel.app
+beno2lll-g3uza4qul-rchids-projects.vercel.app
+Source
+main
+0e50f2c
+Add files via upload
+
+Deployment Settings
+3 Recommendations
+Recommendations
+Build Multiple Deployments Simultaneously
+Never wait for a queued build.
+Get builds up to 40% faster
+Switch to a bigger build machine.
+Prevent Frontend-Backend Mismatches
+Automatically sync client and server versions to avoid deployment conflicts.
+Build Settings
+On-Demand Concurrent Builds
+Disabled
+Build Machine
+Standard performance
+4 vCPUs
+8 GB Memory
+Prioritize Production Builds
+Enabled
+Runtime Settings
+Fluid Compute
+Enabled
+Function CPU
+Standard
+1 vCPU
+2 GB Memory
+Deployment Protection
+Standard Protection
+Skew Protection
+Disabled
+Cold Start Prevention
+Build Logs
+4s
+16 lines
+Find in logs
+⌘F
+12:05:01.200 
+Running build in Washington, D.C., USA (East) – iad1
+12:05:01.200 
+Build machine configuration: 2 cores, 8 GB
+12:05:01.218 
+Cloning github.com/touramme1-cmd/beno2lll (Branch: main, Commit: 0e50f2c)
+12:05:01.225 
+Skipping build cache, deployment was triggered without cache.
+12:05:03.256 
+Cloning completed: 2.038s
+12:05:03.583 
+Running "vercel build"
+12:05:03.956 
+Vercel CLI 48.2.9
+12:05:04.785 
+npm error code ENOENT
+12:05:04.786 
+npm error syscall open
+12:05:04.787 
+npm error path /vercel/path0/package.json
+12:05:04.787 
+npm error errno -2
+12:05:04.787 
+npm error enoent Could not read package.json: Error: ENOENT: no such file or directory, open '/vercel/path0/package.json'
+12:05:04.788 
+npm error enoent This is related to npm not being able to find a file.
+12:05:04.788 
+npm error enoent
+12:05:04.788 
+npm error A complete log of this run can be found in: /vercel/.npm/_logs/2025-10-23T10_05_04_716Z-debug-0.log
+12:05:04.798 
+Error: Command "npm run build" exited with 254
+Deployment Summary
+Deployment Checks
+Assigning Custom Domains
+Runtime Logs
+
+View and debug runtime logs & errors
+
+Observability
+
+Monitor app health & performance
+
+Speed Insights
+
+Not Enabled
+Performance metrics from real users
+
+Web Analytics
+
+Not Enabled
+Analyze visitors & traffic in real-time
+
+Home
+Docs
+Guides
+Academy
+Help
+Contact
+All systems normal.
+
+Select a display theme:
+
+system
+
+light
+
+dark
+0%

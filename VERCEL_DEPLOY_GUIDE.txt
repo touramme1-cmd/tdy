@@ -1,0 +1,215 @@
+═══════════════════════════════════════════════════════════════
+    📋 GUIDE COMPLET - DÉPLOIEMENT VERCEL
+═══════════════════════════════════════════════════════════════
+
+🎯 ÉTAPE 1 : MIGRER LA BASE DE DONNÉES VERS NEON
+═══════════════════════════════════════════════════════════════
+
+Vous avez déjà créé une base de données Neon. Maintenant, migrons le schéma :
+
+1. Dans Replit, ouvrir le Shell
+2. Exécuter cette commande pour pousser le schéma vers Neon :
+
+   npx drizzle-kit push
+
+3. Quand demandé, confirmer avec "yes"
+
+✅ Cette commande crée toutes les tables nécessaires dans votre DB Neon
+
+═══════════════════════════════════════════════════════════════
+🎯 ÉTAPE 2 : PUSH SUR GITHUB
+═══════════════════════════════════════════════════════════════
+
+Si vous n'avez pas encore connecté GitHub à Replit :
+
+1. Cliquer sur l'icône "Version Control" dans Replit
+2. Cliquer "Connect to GitHub"
+3. Autoriser Replit à accéder à votre GitHub
+4. Créer un nouveau repository
+5. Push le code
+
+OU si vous préférez la ligne de commande :
+
+git add .
+git commit -m "Ready for Vercel deployment"
+git push origin main
+
+═══════════════════════════════════════════════════════════════
+🎯 ÉTAPE 3 : CRÉER PROJET SUR VERCEL
+═══════════════════════════════════════════════════════════════
+
+1. Aller sur : https://vercel.com/new
+2. Connecter votre compte GitHub si ce n'est pas déjà fait
+3. Cliquer "Import" sur votre repository
+4. Cliquer "Import" pour continuer
+
+═══════════════════════════════════════════════════════════════
+🎯 ÉTAPE 4 : CONFIGURATION BUILD
+═══════════════════════════════════════════════════════════════
+
+Dans les "Build Settings" (TRÈS IMPORTANT) :
+
+Framework Preset: Other
+────────────────────────────────────────────────────────────────
+
+Build Command: npm run build
+────────────────────────────────────────────────────────────────
+
+Output Directory: dist/public
+────────────────────────────────────────────────────────────────
+
+Install Command: npm install
+────────────────────────────────────────────────────────────────
+
+Node.js Version: 20.x
+────────────────────────────────────────────────────────────────
+
+═══════════════════════════════════════════════════════════════
+🎯 ÉTAPE 5 : VARIABLES D'ENVIRONNEMENT
+═══════════════════════════════════════════════════════════════
+
+Aller dans : Environment Variables
+
+Ajouter ces 4 variables EXACTEMENT :
+
+1️⃣ DATABASE_URL
+────────────────────────────────────────────────────────────────
+Valeur : postgresql://neondb_owner:npg_bjzeivPXgq21@ep-proud-poetry-a4f0e8g3-pooler.us-east-1.aws.neon.tech/neondb?sslmode=require
+
+✅ C'est votre connexion Neon que vous avez fournie
+
+
+2️⃣ SESSION_SECRET
+────────────────────────────────────────────────────────────────
+Valeur : 8b86a3a4d7adeb903db0b0e35f82ff54af6830804e8d20bbf2dce89e8641e8bc
+
+✅ Généré de manière sécurisée pour votre projet
+
+
+3️⃣ NODE_ENV
+────────────────────────────────────────────────────────────────
+Valeur : production
+
+
+4️⃣ GOOGLE_SHEET_WEBHOOK_URL
+────────────────────────────────────────────────────────────────
+Valeur : https://script.google.com/macros/s/AKfycbx1l-HBoUCEM9lSUJF7cdjejrXt9n_3qjo1Ox2pk1-YWL5BeUZ89rhVNp7Pcjb1NYWl/exec
+
+✅ Votre webhook Google Sheets existant
+
+═══════════════════════════════════════════════════════════════
+🎯 ÉTAPE 6 : ACTIVER VERCEL BLOB STORAGE (OPTIONNEL)
+═══════════════════════════════════════════════════════════════
+
+Pour les CVs, Vercel Blob est recommandé mais gratuit jusqu'à 500MB :
+
+1. Après le premier déploiement, aller dans votre projet Vercel
+2. Onglet "Storage"
+3. Créer un "Blob Store"
+4. Le BLOB_READ_WRITE_TOKEN sera automatiquement ajouté
+
+⚠️ NOTE : Ce n'est PAS obligatoire pour que le site fonctionne !
+Les formulaires de contact marcheront sans Blob Storage.
+
+═══════════════════════════════════════════════════════════════
+🎯 ÉTAPE 7 : DÉPLOYER
+═══════════════════════════════════════════════════════════════
+
+Cliquer "Deploy" !
+
+⏱️ Le déploiement prend 2-3 minutes.
+
+═══════════════════════════════════════════════════════════════
+🎯 ÉTAPE 8 : SEEDER LA BASE DE DONNÉES (IMPORTANT)
+═══════════════════════════════════════════════════════════════
+
+Après le premier déploiement réussi, vous devez ajouter des jobs :
+
+Option A - Depuis Replit (RECOMMANDÉ) :
+────────────────────────────────────────────────────────────────
+1. Dans Replit, créer un fichier .env.production avec :
+
+   DATABASE_URL=postgresql://neondb_owner:npg_bjzeivPXgq21@ep-proud-poetry-a4f0e8g3-pooler.us-east-1.aws.neon.tech/neondb?sslmode=require
+
+2. Exécuter :
+
+   DATABASE_URL="postgresql://neondb_owner:npg_bjzeivPXgq21@ep-proud-poetry-a4f0e8g3-pooler.us-east-1.aws.neon.tech/neondb?sslmode=require" npx tsx server/seed.ts
+
+✅ Cela ajoute 6 jobs de démonstration + 4 employeurs
+
+
+Option B - Depuis Vercel :
+────────────────────────────────────────────────────────────────
+Utiliser le formulaire "Hire with Us" sur votre site déployé
+pour ajouter vos propres offres d'emploi.
+
+═══════════════════════════════════════════════════════════════
+✅ CHECKLIST FINALE
+═══════════════════════════════════════════════════════════════
+
+Avant de cliquer "Deploy", vérifiez :
+
+✅ Framework Preset: Other
+✅ Build Command: npm run build
+✅ Output Directory: dist/public
+✅ Node.js Version: 20.x
+✅ DATABASE_URL ajouté
+✅ SESSION_SECRET ajouté
+✅ NODE_ENV=production ajouté
+✅ GOOGLE_SHEET_WEBHOOK_URL ajouté
+✅ Schéma DB poussé vers Neon (drizzle-kit push)
+
+═══════════════════════════════════════════════════════════════
+🎉 APRÈS LE DÉPLOIEMENT
+═══════════════════════════════════════════════════════════════
+
+Votre site sera accessible sur :
+https://votre-projet.vercel.app
+
+Testez ces fonctionnalités :
+✅ Navigation entre les pages (EN/FR/AR)
+✅ Recherche d'emplois
+✅ Détails d'un emploi
+✅ Formulaire de contact (devrait envoyer à Google Sheets)
+✅ Bouton WhatsApp (devrait ouvrir WhatsApp)
+✅ Mode sombre/clair
+✅ Changement de langue
+
+═══════════════════════════════════════════════════════════════
+⚠️ NOTES IMPORTANTES
+═══════════════════════════════════════════════════════════════
+
+1. Stack Auth n'est PAS utilisé dans ce projet
+   Les clés Stack Auth que vous avez ne sont pas nécessaires ici.
+
+2. La base de données Neon est GRATUITE jusqu'à 0.5 GB
+   Largement suffisant pour des centaines de jobs.
+
+3. Vercel Blob est optionnel
+   Le site fonctionne sans, mais c'est bien pour les CVs.
+
+4. Google Sheets Webhook
+   Tous les contacts sont automatiquement envoyés à votre Google Sheet.
+
+5. Numéro WhatsApp configuré : +216 52 265 563
+
+═══════════════════════════════════════════════════════════════
+🆘 PROBLÈMES COURANTS
+═══════════════════════════════════════════════════════════════
+
+❌ "GitHub repository does not contain the requested branch"
+→ Solution : Vérifier que vous avez bien push sur GitHub
+→ Vérifier que la branche est "main" et non "master"
+
+❌ "Build failed"
+→ Solution : Vérifier Framework Preset = "Other"
+→ Vérifier Output Directory = "dist/public"
+
+❌ "Database connection failed"
+→ Solution : Vérifier que DATABASE_URL est correct
+→ S'assurer qu'il contient ?sslmode=require à la fin
+
+❌ "Page shows no jobs"
+→ Solution : Exécuter le seed script (voir ÉTAPE 8)
+
+═══════════════════════════════════════════════════════════════

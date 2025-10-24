@@ -1,0 +1,145 @@
+1) Objectif & public
+	•	Objectif : centraliser et publier des offres d’emploi en Arabie Saoudite, Émirats (surtout Dubaï & Abu Dhabi) et Qatar, destinées aux candidats Tunisie / Maroc / Algérie.
+	•	Langues : Arabe (RTL) et Anglais (basculable partout, y compris URL et métadonnées).
+	•	Ton : professionnel, crédible, simple.
+
+2) Arborescence (Sitemap) & sections clés
+	1.	Accueil (/ / /ar/)
+	•	Héros avec proposition de valeur + champ de recherche (métier, mot-clé)
+	•	Filtres rapides par pays de destination (KSA, UAE, Qatar) et villes (Riyadh/Jeddah/Dammam, Dubai, Abu Dhabi, Doha)
+	•	Catégories (IT, Santé, BTP, Finance, Ventes, Hôtellerie…)
+	•	Offres récentes + offres en vedette
+	•	Bandeau « Nous recrutons pour la région MENA » + CTA WhatsApp et Contact
+	2.	Offres actuelles (/jobs / /ar/jobs)
+	•	Liste paginée avec filtres combinables : mot-clé, pays, ville, catégorie, type de contrat, expérience, salaire (range), pays d’origine du candidat (TN/MA/DZ), date de publication
+	•	Tri : récent, salaire, pertinence
+	•	Badges (Urgent, Visa sponsor, Logement fourni, Relocation, Remote partiel)
+	•	Vue carte (optionnel) et sauvegarde d’offres (sans compte = localStorage ; avec compte = base)
+	3.	Détail d’une offre (/job/{slug} / /ar/job/{slug})
+	•	Titre, employeur/recruteur, ville & pays, salaire/avantages, description, responsabilités, exigences, visa/sponsoring, deadline
+	•	CTA : Postuler (formulaire natif) + Postuler via WhatsApp (ouvre WhatsApp avec message prérempli)
+	•	Entreprise (logo, description) + offres similaires + partage social
+	•	Inspiré des pages de détail que l’on voit sur Tanitjobs (listes par ville, catégories, pagination, blocs d’offres), utile pour la structure du listing et de la navigation.  ￼
+	4.	Offres bientôt disponibles (/coming-soon)
+	•	Teaser de postes en cours d’approbation, abonnement alerte e-mail/WhatsApp
+	5.	Soumettre un CV / Candidature spontanée (/apply / /ar/apply)
+	•	Formulaire (nom, email, WhatsApp/téléphone, pays d’origine, spécialité, années d’expérience, CV (PDF), message)
+	6.	Contact (/contact / /ar/contact)
+	•	Formulaire (voir §7) + coordonnées + bouton WhatsApp flottant visible sur toutes les pages
+	7.	À propos (/about) & FAQ (/faq)
+	•	Mission, processus de sélection, délais, visas, relocation, logement, etc.
+	8.	Employeurs / Partenaires (/hire-with-us)
+	•	Formulaire pour poster une mission (protégé anti-spam)
+	9.	Légal : Confidentialité, CGU, Cookies, Mentions.
+
+3) Modèle de données (simplifié)
+
+Job
+	•	id, slug, title_en, title_ar, description_en, description_ar (HTML sécurisé)
+	•	country (KSA/UAE/QAT), city (enum), category, contract_type, experience_level
+	•	salary_min, salary_max, currency (SAR/AED/QAR), benefits[]
+	•	visa_sponsorship (bool), relocation (bool), housing (bool)
+	•	posted_at, expires_at, status (draft/published/archived), featured (bool)
+	•	employer_id, external_apply_url (optionnel), whatsapp_recipient (override)
+
+Employer
+	•	name, logo, about, website, whatsapp_number (Intl), email
+
+Candidate (optionnel)
+	•	name, email, phone/WhatsApp, country_of_origin (TN/MA/DZ), cv_url, skills[]
+
+4) Fonctions clés & parcours
+	•	Recherche & filtres rapides + « chips » de filtres actifs
+	•	Postuler (formulaire interne) et/ou WhatsApp Click-to-Chat avec message prérempli
+	•	Alerte offres (email + option WhatsApp) par pays/catégorie
+	•	Sauvegarder / Partager une offre
+	•	Localisation : support RTL complet en Arabe (layout, typographies, icônes mirroring)
+
+5) Multi-langue & SEO
+	•	Routes bilingues (/ar/...), balises <html dir="rtl" lang="ar"> côté Arabe
+	•	Balises meta par langue (title, description), Open Graph, JSON-LD JobPosting (schema.org)
+	•	URL propres :
+	•	/jobs?country=sa&city=riyadh – /ar/jobs?country=sa&city=riyadh
+	•	/job/business-development-manager-dubai – /ar/job/مدير-تطوير-الأعمال-دبي
+	•	Sitemap.xml, robots.txt, pagination canonique, fil d’Ariane
+
+6) Bouton WhatsApp flottant (spéc technique)
+	•	Position : fixe, bas-droite (mobile : 16px du bord, desktop : 24–32px), z-index élevé
+	•	États : normal (icône), hover (texte « Discuter »), focus visible (accessibilité)
+	•	Comportement : ouvre Click-to-Chat vers un numéro au format international.
+	•	Format officiel : https://wa.me/<phone> ou https://api.whatsapp.com/send?phone=<phone>&text=<urlencoded> (recommandé par WhatsApp Business).  ￼
+	•	Exemple (numéro fictif) :
+	•	https://wa.me/971501234567?text=Hello%20I%20am%20interested%20in%20the%20Dubai%20Sales%20Manager%20role
+	•	Message prérempli dynamique depuis la page offre : titre, ville/pays, lien de l’offre, langue actuelle.
+	•	UTM ajoutés à l’URL de la page pour l’attribution (ex : ?utm_source=whatsapp_fab)
+	•	Accessibilité : aria-label, contrastes, navigation clavier
+
+Réfs utiles pour Click-to-Chat / création de liens WhatsApp : guide WhatsApp Business (short links) et tutos récents expliquant la méthode wa.me et messages préremplis.  ￼
+
+7) Formulaire de contact (spéc technique)
+	•	Champs : nom, email, WhatsApp/téléphone, sujet, message, pièce jointe (optionnel)
+	•	Validations côté client et serveur (regex email/téléphone intl)
+	•	Anti-spam : hCaptcha/ReCAPTCHA, honeypot
+	•	Routing : envoi vers une boîte dédiée + accusé de réception (bilingue)
+	•	RGPD : consentement, lien vers politique de confidentialité
+	•	Intégration GA4/Tag Manager pour conversions « soumis » et « clic WhatsApp »
+
+8) Page Détail d’offre — contenus & UX
+	•	Header : Titre, localisation (icône), date de publication, vues (optionnel)
+	•	Blocs : Description, Missions, Profil recherché, Avantages, Visa/Relocation, Salaire
+	•	CTA primaires (accent visuel) : Postuler / WhatsApp
+	•	Sidebar : infos employeur, autres offres, alerte sur mots-clés
+	•	Nav précédente/suivante, fil d’Ariane
+	•	Les portails comme Tanitjobs exposent ces patterns (listings par villes/catégories, navigation paginée, fiches d’offre détaillées), c’est une bonne base de référence pour la structure.  ￼
+
+9) Administration (back-office)
+	•	CRUD complet Jobs/Employeurs/Catégories/Villes
+	•	Prévisualisation avant publication, planification (publish_at)
+	•	Champs multilingues, validation (ex : salaire min ≤ max)
+	•	Import CSV/Excel, tags (Urgent, Visa sponsor…)
+	•	Rôles : Admin, Rédacteur, Lecteur (audit log)
+
+10) Tech stack (suggestion)
+	•	Front : Next.js (app router), i18n, Tailwind, RTL via dir="rtl" + classes utilities
+	•	CMS : Headless (Strapi/Sanity/Directus) pour champs bilingues
+	•	DB : Postgres (hébergé)
+	•	Recherche : Meilisearch/Algolia (typo-tolerant + facettes)
+	•	Auth (optionnel) : magic link ou OAuth (Google) si tu veux des comptes candidats
+	•	Mail : SendGrid/Resend (DKIM/SPF)
+	•	Analytics : GA4 + gtag pour événements (clic WhatsApp, submit form)
+
+11) Performance & accessibilité
+	•	Images optimisées, lazy-load, WebP/AVIF
+	•	Core Web Vitals : LCP < 2.5s, CLS < 0.1
+	•	A11y : contrastes, tab order, aria labels, texte alternatif, RTL correct
+
+12) Sécurité & conformité
+	•	HTTPS forcé, headers sécurité (CSP, HSTS, X-Frame-Options…)
+	•	Validation serveur de tous les formulaires, scans anti-malware pour CV
+	•	RGPD : bannière cookies, consentements, page données personnelles
+
+13) URLs & exemples
+	•	Listing : /jobs?country=ae&city=dubai&category=it&exp=3plus
+	•	Détail : /job/senior-electrical-engineer-dubai
+	•	Arabe : /ar/job/مهندس-كهرباء-أقدم-دبي
+	•	Contact : /contact — envoi vers jobs@tondomaine.com
+
+14) Événements de tracking (GA4)
+	•	search_performed, filter_applied, job_view, apply_started, apply_submitted, whatsapp_click, cv_uploaded
+	•	Dimensions personnalisées : pays destination, ville, catégorie, langue
+
+15) Critères d’acceptation (exemples)
+	•	Changer de langue ne perd pas la page ni les filtres actifs
+	•	Bouton WhatsApp flottant présent et fonctionnel sur toutes les pages
+	•	Page offre charge < 2 s sur 4G ; structure schema.org/JobPosting valide
+	•	Formulaire de contact & candidature envoient bien les emails + events GA
+	•	RTL : alignements, ponctuation, puces, icônes mirroring OK
+	•	SEO : title/description Hreflang, sitemaps, canonical, Open Graph OK
+
+⸻
+
+Détails d’intégration WhatsApp (à copier au dev)
+	•	Format lien (officiel) : https://wa.me/<NUM_INTL_SANS+> (ex. 971501234567)
+	•	Message : ?text= + encodeURIComponent("I’m interested in: <Job Title> - <City, Country> <URL>")
+	•	Sur desktop : redirige vers WhatsApp Web ; mobile : ouvre l’app (comportement standard documenté par WhatsApp).  ￼
+	•	Générateurs/ressources utiles si besoin d’un widget ou QR code : Walink / guides récents.  ￼

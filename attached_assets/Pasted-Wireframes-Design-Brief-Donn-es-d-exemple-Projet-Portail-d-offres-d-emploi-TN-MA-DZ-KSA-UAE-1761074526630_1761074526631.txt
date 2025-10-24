@@ -1,0 +1,292 @@
+Wireframes, Design Brief & Données d’exemple
+
+Projet : Portail d’offres d’emploi (TN/MA/DZ → KSA/UAE/Qatar) bilingue Arabe/Anglais, avec CTA WhatsApp.
+
+⸻
+
+1) Wireframes (ASCII)
+
+1.1 Accueil (/ | /ar/)
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  Header: Logo | Jobs | About | FAQ | Contact | [EN | AR] | (WhatsApp icon) │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ Hero:                                                                       │
+│  [Titre fort: “Votre carrière au Golfe”] [Sous-texte] [Bouton Voir Offres]  │
+│  [Champ recherche mots-clés] [Select Catégorie] [Select Pays] [Select Ville]│
+├─────────────────────────────────────────────────────────────────────────────┤
+│ Filtres rapides (chips): [KSA] [UAE] [Qatar] [Dubai] [Abu Dhabi] [Riyadh]   │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ Catégories (cards 2–4 par ligne): IT | Santé | BTP | Finance | Vente | ...  │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ Offres récentes (grid/list)                                                  │
+│  ┌Card───────────────────────────────────────────────────────────────────┐  │
+│  │ Titre poste  | Ville, Pays | Badge: Visa Sponsor | Salaire            │  │
+│  │ Extrait description…                                                   │  │
+│  │ [Postuler] [WhatsApp] [En savoir +]                                    │  │
+│  └───────────────────────────────────────────────────────────────────────┘  │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ Bandeau partenaire: “Nous recrutons pour la région MENA” [Employeurs→]      │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ Footer: Liens | Réseaux | Legal | Newsletter                                │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+1.2 Listing des offres (/jobs)
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ Header (identique)                                                          │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ Filtres latéraux (desktop) / Drawer (mobile):                                │
+│  - Mots-clés                                                                 │
+│  - Pays (KSA/UAE/Qatar)                                                      │
+│  - Ville (Riyadh/Jeddah/Dammam/Dubai/Abu Dhabi/Doha)                         │
+│  - Catégorie                                                                 │
+│  - Expérience (0–1, 2–4, 5–7, 8+)                                           │
+│  - Type de contrat                                                           │
+│  - Salaire (min–max) + Devise                                               │
+│  - Pays d’origine candidat (TN/MA/DZ)                                        │
+│  - Publication (dernier 7/14/30 jours)                                       │
+│  - Badges (Urgent, Visa sponsor, Logement)                                   │
+│  [Réinitialiser] [Appliquer]                                                 │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ Barre résultats: 124 offres | Trier: Récent ▾ | Affichage: Liste ▾          │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ Liste (item):                                                                │
+│  Titre — Employeur — Ville, Pays — Salaire — Badges                          │
+│  Extrait…  [Postuler] [WhatsApp] [Détails→]                                  │
+│  … (pagination en bas)                                                       │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+1.3 Détail d’une offre (/job/{slug})
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ Header                                                                      │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ Titre | Entreprise (logo) | Ville, Pays | Publié le JJ/MM/AAAA | Vues       │
+│ [Postuler] [WhatsApp] [Sauvegarder] [Partager]                               │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ Colonne principale:                                                          │
+│  - Description                                                               │
+│  - Missions                                                                  │
+│  - Profil recherché                                                          │
+│  - Salaire & Avantages (Logement, Transport, Visa sponsor…)                  │
+│  - Visa / Relocation / Deadline                                              │
+│  - Schema.org JobPosting (SEO)                                               │
+│  - Offres similaires                                                          │
+│ Sidebar:                                                                     │
+│  - À propos de l’entreprise                                                  │
+│  - Autres offres de la même entreprise                                       │
+│  - Alerte e-mail/WhatsApp                                                    │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+1.4 Contact (/contact)
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ Header                                                                      │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ Formulaire:                                                                  │
+│  Nom | Email | WhatsApp/Téléphone                                            │
+│  Sujet ▾ | Message (multi-lignes)                                            │
+│  Pièce jointe (CV)  [hCaptcha]  [Envoyer]                                    │
+│ Coordonnées: email, WhatsApp, adresse (si besoin)                             │
+│ FAQ courte (3–5 Q/R)                                                         │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+1.5 Offres bientôt disponibles (/coming-soon)
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ Header                                                                      │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ Teaser + catégories à venir                                                  │
+│ Champ e-mail + Opt-in WhatsApp  [S’abonner]                                   │
+│ Liste “teaser” des postes en cours (sans détails complets)                   │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+1.6 Employeurs / Partenaires (/hire-with-us)
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ Header                                                                      │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ Formulaire mission:                                                           │
+│  Entreprise, Email, WhatsApp, Pays/Ville, Poste, Salaire, Avantages,         │
+│  Description, Exigences, Délai, Visa sponsor?                                 │
+│  [Envoyer]                                                                    │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+
+⸻
+
+2) Design Brief
+
+2.1 Palette (clair par défaut)
+	•	Primary: #0E7490 (cyan-700) — actions principales, liens
+	•	Primary Hover: #155E75
+	•	Accent: #EAB308 (amber-500) — badges “Urgent”, highlights
+	•	Neutral 900/700/500/300/100: #0F172A / #334155 / #64748B / #CBD5E1 / #F1F5F9
+	•	Success: #16A34A ; Warning: #D97706 ; Error: #DC2626
+	•	Background: #FFFFFF ; Background alt: #F8FAFC
+
+Mode sombre (optionnel) : inversions et contrastes AA au minimum.
+
+2.2 Typographies (compatibles Ar/En)
+	•	Latin : Inter (UI) / Source Sans 3 (texte long)
+	•	Arabe : Noto Sans Arabic ou IBM Plex Sans Arabic (bon hinting RTL)
+	•	Paires suggérées :
+	•	UI : Inter 500/600 + Noto Sans Arabic 500/600
+	•	Texte : Source Sans 3 400 + Noto Sans Arabic 400
+	•	Fallbacks : system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial + Tahoma pour AR anciens OS.
+	•	RTL : dir="rtl" côté HTML en Arabe, text-align: start, mirroring des icônes directionnelles.
+
+2.3 Spacing & grille
+	•	Base 8px (Tailwind : 2 = 0.5rem). Containers: 1200–1280px.
+	•	Cards radius 16px–24px, ombre douce. Gouttières 16–24px.
+
+2.4 Composants clés
+	•	Bouton principal: rempli Primary, rayon 9999 (pill), focus ring visible.
+	•	Chips filtres: pill, état activé avec fond Primary/10 + bord Primary.
+	•	Badges: arrondis 12px, codes couleur (Visa=Success, Urgent=Accent, Logement=Primary/700 text on /100 bg).
+	•	Champ recherche: input large + bouton.
+
+2.5 Icônes & Illus
+	•	Pack Lucide / Remix. Pictos spécifiques: localisation, visa, logement, contrat, salaire.
+
+2.6 Accessibilité
+	•	Contraste AA sur textes, focus states visibles, taille police >= 16px, taille cible tactile >= 44px.
+
+2.7 Microcopie (exemples bilingues)
+	•	EN: “Apply on WhatsApp” / AR: “قدّم عبر واتساب” / FR: “Postuler via WhatsApp”
+	•	EN: “Visa sponsorship available” / AR: “رعاية تأشيرة متاحة”
+
+2.8 WhatsApp FAB (flottant)
+	•	Position: bas-droite; mobile: 16px des bords; z-index élevé.
+	•	Lien: https://wa.me/<NUM_INTL> ou https://api.whatsapp.com/send?phone=<NUM_INTL>&text=<ENCODED>
+	•	Message dynamique depuis la fiche offre; UTM ?utm_source=whatsapp_fab.
+
+⸻
+
+3) Données d’exemple
+
+3.1 JSON (import initial)
+
+{
+  "jobs": [
+    {
+      "id": "J-0001",
+      "slug": "business-development-manager-dubai",
+      "title_en": "Business Development Manager",
+      "title_ar": "مدير تطوير الأعمال",
+      "description_en": "Drive partnerships and revenue across GCC markets.",
+      "description_ar": "قيادة الشراكات والإيرادات عبر أسواق الخليج.",
+      "country": "UAE",
+      "city": "Dubai",
+      "category": "Sales",
+      "contract_type": "Full-time",
+      "experience_level": "5-7",
+      "salary_min": 18000,
+      "salary_max": 23000,
+      "currency": "AED",
+      "benefits": ["Housing allowance", "Medical insurance"],
+      "visa_sponsorship": true,
+      "relocation": true,
+      "housing": true,
+      "posted_at": "2025-10-01",
+      "expires_at": "2025-11-15",
+      "featured": true,
+      "employer": {
+        "name": "GulfTalent Partners",
+        "logo": "/logos/gulftalent.svg",
+        "website": "https://example.com",
+        "whatsapp_number": "971501234567",
+        "email": "hr@gulftalentpartners.com"
+      }
+    },
+    {
+      "id": "J-0002",
+      "slug": "registered-nurse-riyadh",
+      "title_en": "Registered Nurse",
+      "title_ar": "ممرضة مسجلة",
+      "description_en": "Hospital-based role with accommodation.",
+      "description_ar": "دور في مستشفى مع سكن.",
+      "country": "KSA",
+      "city": "Riyadh",
+      "category": "Healthcare",
+      "contract_type": "Full-time",
+      "experience_level": "2-4",
+      "salary_min": 9000,
+      "salary_max": 12000,
+      "currency": "SAR",
+      "benefits": ["Housing", "Visa", "Annual flight"],
+      "visa_sponsorship": true,
+      "relocation": true,
+      "housing": true,
+      "posted_at": "2025-09-20",
+      "expires_at": "2025-11-01",
+      "featured": false,
+      "employer": {
+        "name": "CarePlus KSA",
+        "logo": "/logos/careplus.svg",
+        "website": "https://example.com",
+        "whatsapp_number": "966501112223",
+        "email": "apply@careplus-ksa.com"
+      }
+    },
+    {
+      "id": "J-0003",
+      "slug": "site-engineer-doha",
+      "title_en": "Site Engineer",
+      "title_ar": "مهندس موقع",
+      "description_en": "Large infrastructure project in Doha.",
+      "description_ar": "مشروع بنية تحتية كبير في الدوحة.",
+      "country": "QAT",
+      "city": "Doha",
+      "category": "Construction",
+      "contract_type": "Contract",
+      "experience_level": "5-7",
+      "salary_min": 14000,
+      "salary_max": 18000,
+      "currency": "QAR",
+      "benefits": ["Transport", "Medical"],
+      "visa_sponsorship": true,
+      "relocation": true,
+      "housing": false,
+      "posted_at": "2025-10-10",
+      "expires_at": "2025-12-01",
+      "featured": false,
+      "employer": {
+        "name": "QBuild Partners",
+        "logo": "/logos/qbuild.svg",
+        "website": "https://example.com",
+        "whatsapp_number": "97455566778",
+        "email": "talent@qbuild.qa"
+      }
+    }
+  ]
+}
+
+3.2 CSV (UTF-8, séparateur ,)
+
+id,slug,title_en,title_ar,description_en,description_ar,country,city,category,contract_type,experience_level,salary_min,salary_max,currency,benefits,visa_sponsorship,relocation,housing,posted_at,expires_at,featured,employer_name,employer_logo,employer_website,employer_whatsapp_number,employer_email
+J-0001,business-development-manager-dubai,Business Development Manager,مدير تطوير الأعمال,"Drive partnerships and revenue across GCC markets.","قيادة الشراكات والإيرادات عبر أسواق الخليج.",UAE,Dubai,Sales,Full-time,5-7,18000,23000,AED,"Housing allowance|Medical insurance",true,true,true,2025-10-01,2025-11-15,true,GulfTalent Partners,/logos/gulftalent.svg,https://example.com,971501234567,hr@gulftalentpartners.com
+J-0002,registered-nurse-riyadh,Registered Nurse,ممرضة مسجلة,"Hospital-based role with accommodation.","دور في مستشفى مع سكن.",KSA,Riyadh,Healthcare,Full-time,2-4,9000,12000,SAR,"Housing|Visa|Annual flight",true,true,true,2025-09-20,2025-11-01,false,CarePlus KSA,/logos/careplus.svg,https://example.com,966501112223,apply@careplus-ksa.com
+J-0003,site-engineer-doha,Site Engineer,مهندس موقع,"Large infrastructure project in Doha.","مشروع بنية تحتية كبير في الدوحة.",QAT,Doha,Construction,Contract,5-7,14000,18000,QAR,"Transport|Medical",true,true,false,2025-10-10,2025-12-01,false,QBuild Partners,/logos/qbuild.svg,https://example.com,97455566778,talent@qbuild.qa
+
+3.3 Lien WhatsApp prérempli (exemple dynamique)
+	•	Base: https://wa.me/971501234567?text=
+	•	Texte encodé: encodeURIComponent("I'm interested in: Business Development Manager - Dubai, UAE https://votresite.com/job/business-development-manager-dubai?utm_source=whatsapp_fab")
+
+3.4 Événements GA4 (à implémenter)
+	•	search_performed, filter_applied, job_view, apply_started, apply_submitted, whatsapp_click, cv_uploaded
+	•	Params utiles: { country: 'UAE', city: 'Dubai', category: 'Sales', lang: 'ar' }
+
+⸻
+
+4) Notes pour le dev
+	•	Internationalisation: routes /ar/..., balises <html lang="ar" dir="rtl"> côté Arabe.
+	•	Schema.org JobPosting sur la page détail (titre, lieu, salaire, date, validThrough).
+	•	Validation formulaires serveur + client; hCaptcha/ReCAPTCHA; upload CV (PDF) avec scan antivirus.
+	•	Gestion des dates (UTC) + fuseaux.
+	•	Accessibilité: tab order logique, aria-labels (notamment sur FAB WhatsApp), contrastes conformes.
+
+⸻
+
+Fin du document.

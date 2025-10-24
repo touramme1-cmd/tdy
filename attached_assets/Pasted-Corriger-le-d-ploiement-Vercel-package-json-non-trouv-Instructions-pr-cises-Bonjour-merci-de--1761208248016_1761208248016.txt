@@ -1,0 +1,60 @@
+Corriger le déploiement Vercel (package.json non trouvé) — Instructions précises
+
+Bonjour,
+merci de corriger le déploiement Vercel en suivant exactement les points ci-dessous. Le problème vient du Root Directory : Vercel ne trouvait pas package.json car il est dans un sous-dossier.
+
+1) Contexte technique
+	•	Le projet est structuré ainsi :
+GulfTalentConnect/ contient package.json, vite.config.ts, client/, server/, dist/, vercel.json.
+	•	Erreur Vercel observée :
+npm error enoent Could not read package.json (Vercel cherchait à la racine repo au lieu de GulfTalentConnect/).
+
+2) Réglages Vercel à appliquer (obligatoire)
+
+Aller dans Vercel → Project → Settings :
+
+General → Root Directory
+	•	Mettre exactement : GulfTalentConnect
+	•	Sauvegarder.
+
+Build & Development Settings
+	•	Framework Preset : Other (ou Vite, au choix)
+	•	Install Command : npm install
+	•	Build Command : npm run build
+	•	Output Directory : dist
+	•	Node.js Version : 20.x
+	•	Sauvegarder.
+
+Environment Variables (si on garde le formulaire → Google Sheet) :
+	•	NODE_ENV = production
+	•	GOOGLE_SHEET_WEBHOOK_URL = <URL Apps Script fournie>
+	•	(Si on n’utilise pas de base de données maintenant) ne pas mettre DATABASE_URL/SESSION_SECRET.
+
+3) Redéploiement
+	•	Aller dans Deployments → sur le dernier échec → ⋮ → Redeploy.
+
+4) Ce qu’il ne faut PAS faire
+	•	Ne pas mettre Root Directory = ./ ni client ni server.
+	•	Ne pas mettre Output Directory = public. Notre build Vite sort dans dist/.
+
+5) Tests de validation (à faire après build)
+	•	L’URL Vercel doit être Ready (pas d’erreur build).
+	•	Ouvrir le site → formulaire envoie un POST à GOOGLE_SHEET_WEBHOOK_URL et redirige WhatsApp.
+	•	Vérifier dans le Google Sheet que la ligne s’ajoute (Date, Nom, Email, Téléphone, Pays, Sujet, Message).
+	•	Console réseau : aucune 404 sur les assets (JS/CSS).
+	•	Mobile : la page contact s’affiche et la redirection WhatsApp ouvre l’app.
+
+6) Alternative si besoin (ZIP)
+
+Si tu préfères déployer sans Git :
+	•	Builder localement npm install && npm run build dans GulfTalentConnect/.
+	•	Zipper uniquement le contenu du dossier dist/.
+	•	Vercel → New Project → Upload Project → Upload le ZIP.
+	•	Framework : Other, Output Directory : . (point).
+	•	Ajouter seulement GOOGLE_SHEET_WEBHOOK_URL si formulaire.
+
+7) Critères d’acceptation (bloquants)
+	•	✅ Build Vercel passe sans erreur.
+	•	✅ Le site sert les fichiers depuis dist/ (pas public/).
+	•	✅ Le formulaire écrit dans le Google Sheet et redirige vers WhatsApp.
+	•	✅ Aucun npm error enoent package.json dans les logs.

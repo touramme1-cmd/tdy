@@ -1,0 +1,147 @@
+Pourquoi :The provided GitHub repository does not contain the requested branch or commit reference. Please ensure the repository is not empty.  Alors que Skip to contentNew Project – Vercel
+
+
+Find…
+F
+
+New Project
+importing from GitHub
+
+touramme1-cmd/rachid--beno
+main
+Choose where you want to create the project and give it a name.
+
+Vercel Team
+
+rchid's projects
+Hobby
+Slash Divider
+Project Name
+rachidbeno99.....1
+Framework Preset
+Framework logo
+Other
+Root Directory
+./
+Build Command
+
+npm run build
+Output Directory
+
+dist
+Install Command
+
+npm install
+Key
+DATABASE_URL
+Value
+postgresql://neondb_owner:npg_bjzeivPXgq21@ep-proud-poetry-a4f0e8g3-pooler.us-east-1.aws.neon.tech/neondb?sslmode=require
+SESSION_SECRET
+8b86a3a4d7adeb903db0b0e35f82ff54af6830804e8d20bbf2dce89e8641e8bc
+NODE_ENV
+production
+GOOGLE_SHEET_WEBHOOK_URL
+https://script.google.com/macros/s/AKfycbx1l-HBoUCEM9lSUJF7cdjejrXt9n_3qjo1Ox2pk1-YWL5BeUZ89rhVNp7Pcjb1NYWl/exec
+
+or paste the .env contents above. Learn more
+
+Deployment
+Once you're ready, start deploying to see the progress here…
+Globe
+Import a different Git Repository →
+Browse Templates →
+Home
+Docs
+Guides
+Academy
+Help
+Contact
+All systems normal.
+
+Select a display theme:
+
+system
+
+light
+
+dark. Et voici le dernier . Et regard replat a corriger : Je comprends le problème ! D'après votre fichier, le projet est dans un sous-dossier GulfTalentConnect/ au lieu d'être à la racine du repo GitHub.
+
+Vérifions d'abord la structure actuelle :
+
+
+"Checked GitHub remote configuration" (5 seconds)
+Ah ! Je vois le problème. Vous n'avez pas encore connecté GitHub ! Le remote actuel est gitsafe-backup (backup interne Replit), pas GitHub.
+
+Votre projet est bien à la racine (pas dans un sous-dossier), mais il n'est pas encore sur GitHub. C'est pour ça que Vercel ne le trouve pas !
+
+🎯 Solution complète - Pousser vers GitHub :
+
+Planned vercel.json adjustments
+Parfait ! J'ai identifié le problème et la solution. Voici ce que je vais faire :
+
+
+Edited vercel.json
+
+Improve Vercel settings for output
+
+Create complete GitHub and Vercel guide
+
+Restarted Start application
+
+Decided on summary and guide content
+Parfait ! ✅ J'ai tout corrigé et préparé pour vous.
+
+🎯 CE QUI A ÉTÉ CORRIGÉ :
+1. vercel.json optimisé ✅
+Ajouté "outputDirectory": "dist/public" (crucial !)
+Supprimé "version": 2 (déprécié)
+Ajouté cache headers pour les assets
+2. Guide complet créé ✅
+Fichier : GUIDE_GITHUB_VERCEL.md - Tout y est expliqué pas à pas !
+
+📝 CE QUE VOUS DEVEZ FAIRE MAINTENANT :
+ÉTAPE 1 : Connecter GitHub (1 minute)
+Dans Replit :
+
+Cliquer sur l'icône "Version Control" (panneau de gauche)
+Cliquer "Create a Git Repo" ou "Connect to GitHub"
+Autoriser Replit → GitHub
+Créer le repository (suggéré: beno-gulf-jobs)
+✅ Code automatiquement poussé !
+ÉTAPE 2 : Déployer sur Vercel (3 minutes)
+Aller sur https://vercel.com/new
+Connecter GitHub (si pas déjà fait)
+Importer votre nouveau repository
+Configuration :
+Root Directory:     [LAISSER COMPLÈTEMENT VIDE]  ← IMPORTANT !
+Framework Preset:   Other
+Build Command:      npm run build
+Output Directory:   dist/public
+Node.js Version:    20.x
+Ajouter 4 variables d'environnement :
+DATABASE_URL=postgresql://neondb_owner:npg_bjzeivPXgq21@ep-proud-poetry-a4f0e8g3-pooler.us-east-1.aws.neon.tech/neondb?sslmode=require
+SESSION_SECRET=8b86a3a4d7adeb903db0b0e35f82ff54af6830804e8d20bbf2dce89e8641e8bc
+NODE_ENV=production
+GOOGLE_SHEET_WEBHOOK_URL=https://script.google.com/macros/s/AKfycbx1l-HBoUCEM9lSUJF7cdjejrXt9n_3qjo1Ox2pk1-YWL5BeUZ89rhVNp7Pcjb1NYWl/exec
+Cliquer "Deploy" !
+✅ CHECKLIST AVANT DEPLOY :
+✅ GitHub connecté (code visible sur github.com)
+✅ Root Directory = VIDE (crucial !)
+✅ Output Directory = dist/public
+✅ 4 variables d'environnement ajoutées
+✅ Build Command = npm run build
+🎉 RÉSULTAT :
+Après déploiement (2-3 minutes), votre site sera sur :
+
+https://votre-projet.vercel.app
+Fonctionnalités actives :
+
+✅ 6 jobs de démonstration affichés
+✅ Trilingue EN/FR/AR avec RTL
+✅ Formulaire → Google Sheets
+✅ WhatsApp +216 52 265 563
+✅ Dark mode
+✅ Mobile responsive
+Lisez GUIDE_GITHUB_VERCEL.md pour des détails complets et le dépannage !
+
+Commencez par ÉTAPE 1 : connecter GitHub depuis Replit maintenant. C'est très simple avec l'interface Replit ! 🚀

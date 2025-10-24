@@ -1,0 +1,154 @@
+═══════════════════════════════════════════════════════════════════
+    📦 PROJET CORRIGÉ - PRÊT POUR UPLOAD GITHUB
+═══════════════════════════════════════════════════════════════════
+
+✅ CORRECTION FINALE APPLIQUÉE : npx vite build
+
+Le fichier vercel.json a été mis à jour avec la bonne commande.
+
+═══════════════════════════════════════════════════════════════════
+
+📂 TÉLÉCHARGER LE PROJET
+───────────────────────────────────────────────────────────────────
+
+1. Replit → ⋮ (3 points en haut) → "Download as ZIP"
+2. Extraire le fichier ZIP
+3. OUVRIR le dossier extrait
+
+═══════════════════════════════════════════════════════════════════
+
+📤 UPLOADER SUR GITHUB
+───────────────────────────────────────────────────────────────────
+
+Option A : NOUVEAU REPO (Recommandé)
+─────────────────────────────────────
+
+1. Aller sur : https://github.com/new
+2. Nom du repo : beno-gulf-jobs
+3. ❌ NE PAS cocher "Add README"
+4. Cliquer "Create repository"
+5. Cliquer "uploading an existing file"
+6. Glisser ces 17 ÉLÉMENTS EXACTEMENT :
+
+   DOSSIERS (4) :
+   ✅ api/
+   ✅ client/
+   ✅ server/
+   ✅ shared/
+
+   FICHIERS (13) :
+   ✅ .env.example
+   ✅ .gitignore
+   ✅ components.json
+   ✅ design_guidelines.md
+   ✅ drizzle.config.ts
+   ✅ package.json
+   ✅ package-lock.json
+   ✅ postcss.config.js
+   ✅ README.md
+   ✅ tailwind.config.ts
+   ✅ tsconfig.json
+   ✅ vercel.json          ← FICHIER CORRIGÉ !
+   ✅ vite.config.ts
+
+7. Message : "Initial commit - BENO Gulf Jobs Portal"
+8. Cliquer "Commit changes"
+
+Option B : REMPLACER FICHIER (Si repo existe déjà)
+───────────────────────────────────────────────────
+
+1. Aller sur : https://github.com/touramme1-cmd/koll
+2. Cliquer sur "vercel.json"
+3. Cliquer icône "crayon" (Edit)
+4. EFFACER tout
+5. COLLER ce contenu :
+
+{
+  "buildCommand": "npx vite build",
+  "installCommand": "npm install",
+  "outputDirectory": "dist/public",
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/$1"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
+
+6. Commit changes
+7. Message : "Fix: use npx vite build"
+
+═══════════════════════════════════════════════════════════════════
+
+🚀 DÉPLOYER SUR VERCEL
+───────────────────────────────────────────────────────────────────
+
+1. https://vercel.com/new
+2. Import depuis GitHub
+3. Sélectionner votre repo
+
+┌────────────────────────────────────────────────────────────┐
+│                                                            │
+│ Root Directory:     [VIDE ou beno2kgi]                    │
+│                                                            │
+│ Framework Preset:   Other                                  │
+│                                                            │
+│ Build Command:      npx vite build                        │
+│                     ↑ La commande corrigée                │
+│                                                            │
+│ Output Directory:   dist/public                            │
+│                                                            │
+│ Install Command:    npm install                            │
+│                                                            │
+│ Node.js Version:    20.x                                   │
+│                                                            │
+└────────────────────────────────────────────────────────────┘
+
+VARIABLES D'ENVIRONNEMENT (copier tout d'un coup) :
+
+DATABASE_URL=postgresql://neondb_owner:npg_bjzeivPXgq21@ep-proud-poetry-a4f0e8g3-pooler.us-east-1.aws.neon.tech/neondb?sslmode=require
+SESSION_SECRET=8b86a3a4d7adeb903db0b0e35f82ff54af6830804e8d20bbf2dce89e8641e8bc
+NODE_ENV=production
+GOOGLE_SHEET_WEBHOOK_URL=https://script.google.com/macros/s/AKfycbx1l-HBoUCEM9lSUJF7cdjejrXt9n_3qjo1Ox2pk1-YWL5BeUZ89rhVNp7Pcjb1NYWl/exec
+
+4. Cliquer "Deploy" !
+
+═══════════════════════════════════════════════════════════════════
+
+🎯 CE QUI A ÉTÉ CORRIGÉ
+───────────────────────────────────────────────────────────────────
+
+ERREUR PRÉCÉDENTE :
+❌ "vite build" → vite: command not found
+
+CORRECTION :
+✅ "npx vite build" → utilise vite depuis node_modules
+
+═══════════════════════════════════════════════════════════════════
+
+✅ CHECKLIST AVANT DEPLOY
+───────────────────────────────────────────────────────────────────
+
+GitHub :
+□ 17 éléments uploadés
+□ Dossier api/ présent
+□ vercel.json contient "npx vite build"
+
+Vercel :
+□ Build Command = npx vite build
+□ Output Directory = dist/public
+□ 4 variables d'environnement
+□ Node.js = 20.x
+
+═══════════════════════════════════════════════════════════════════
+
+🚀 C'EST PRÊT !
+
+Téléchargez maintenant et uploadez sur GitHub.
+Le build devrait fonctionner cette fois.
+
+═══════════════════════════════════════════════════════════════════

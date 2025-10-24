@@ -1,0 +1,92 @@
+═══════════════════════════════════════════════════════════════════
+    🔄 MISE À JOUR GITHUB - vercel.json CORRIGÉ
+═══════════════════════════════════════════════════════════════════
+
+⚠️  LE FICHIER vercel.json A ÉTÉ CORRIGÉ DANS REPLIT
+
+Vous devez maintenant mettre à jour votre repo GitHub avec la nouvelle version.
+
+═══════════════════════════════════════════════════════════════════
+
+MÉTHODE 1 : REMPLACER UNIQUEMENT vercel.json (RAPIDE)
+───────────────────────────────────────────────────────────────────
+
+1. Ouvrir GitHub : https://github.com/touramme1-cmd/koll
+2. Cliquer sur le fichier "vercel.json"
+3. Cliquer sur l'icône "crayon" (Edit)
+4. EFFACER tout le contenu
+5. COPIER le nouveau contenu ci-dessous :
+
+{
+  "buildCommand": "vite build",
+  "installCommand": "npm install",
+  "outputDirectory": "dist/public",
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/$1"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
+
+6. Cliquer "Commit changes"
+7. Message : "Fix vercel.json runtime config"
+8. Cliquer "Commit changes" (vert)
+
+═══════════════════════════════════════════════════════════════════
+
+MÉTHODE 2 : TOUT RE-UPLOADER (SI MÉTHODE 1 NE MARCHE PAS)
+───────────────────────────────────────────────────────────────────
+
+1. Replit → ⋮ → Download as ZIP
+2. Extraire le ZIP
+3. GitHub → Supprimer l'ancien repo "koll"
+4. Créer nouveau repo "beno-gulf-jobs"
+5. Uploader tous les 17 éléments
+6. Redéployer sur Vercel
+
+═══════════════════════════════════════════════════════════════════
+
+✅ APRÈS MISE À JOUR GITHUB
+───────────────────────────────────────────────────────────────────
+
+1. Retourner sur Vercel
+2. Cliquer "Redeploy" (ou créer nouveau projet si besoin)
+3. Configuration :
+
+   Root Directory:     beno2kgi (ou vide)
+   Build Command:      vite build
+   Output Directory:   dist/public
+   Install Command:    npm install
+
+4. Variables d'environnement (4) déjà configurées
+5. Deploy !
+
+═══════════════════════════════════════════════════════════════════
+
+🎯 CHANGEMENTS DANS vercel.json
+───────────────────────────────────────────────────────────────────
+
+AVANT (ERREUR) :
+❌ "runtime": "nodejs20.x"  ← Vercel ne reconnaît plus
+❌ Configuration trop complexe
+
+APRÈS (CORRECT) :
+✅ Pas de runtime spécifié (détection auto)
+✅ Configuration minimale
+✅ Rewrites simplifiés
+
+═══════════════════════════════════════════════════════════════════
+
+📝 RECOMMANDATION : MÉTHODE 1 (RAPIDE)
+
+Éditer uniquement vercel.json sur GitHub = 2 minutes
+Puis redeploy sur Vercel = 1 minute
+
+Total : 3 minutes ⚡
+
+═══════════════════════════════════════════════════════════════════

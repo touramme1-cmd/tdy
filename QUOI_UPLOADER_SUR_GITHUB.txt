@@ -1,0 +1,139 @@
+═══════════════════════════════════════════════════════════════════
+    📂 QUOI UPLOADER SUR GITHUB - GUIDE VISUEL
+═══════════════════════════════════════════════════════════════════
+
+D'après votre capture d'écran, voici ce qu'il faut faire :
+
+═══════════════════════════════════════════════════════════════════
+
+✅ DOSSIERS À UPLOADER (OBLIGATOIRES)
+───────────────────────────────────────────────────────────────────
+✅ client/                    (Frontend React)
+✅ server/                    (Backend Express)
+✅ shared/                    (Types partagés)
+
+═══════════════════════════════════════════════════════════════════
+
+✅ FICHIERS À UPLOADER (OBLIGATOIRES)
+───────────────────────────────────────────────────────────────────
+✅ package.json               (Dépendances)
+✅ package-lock.json          (Versions exactes)
+✅ vercel.json                (Config Vercel)
+✅ vite.config.ts             (Config Vite)
+✅ tsconfig.json              (Config TypeScript)
+✅ tailwind.config.ts         (Config Tailwind)
+✅ postcss.config.js          (Config PostCSS)
+✅ drizzle.config.ts          (Config Database)
+✅ components.json            (Config Shadcn)
+✅ design_guidelines.md       (Guide design)
+✅ README.md                  (Documentation)
+✅ .gitignore                 (Fichiers à ignorer)
+✅ .env.example               (Template variables)
+
+═══════════════════════════════════════════════════════════════════
+
+❌ DOSSIERS À NE PAS UPLOADER
+───────────────────────────────────────────────────────────────────
+❌ dist/                      (Build - sera généré par Vercel)
+❌ attached_assets/           (Fichiers temporaires)
+❌ api/                       (Si vide ou inutile)
+❌ node_modules/              (Dépendances - pas dans votre ZIP normalement)
+❌ .cache/                    (Cache Replit)
+
+═══════════════════════════════════════════════════════════════════
+
+❌ FICHIERS À NE PAS UPLOADER (Guides & Tests)
+───────────────────────────────────────────────────────────────────
+❌ CONFIGURATION_DOCS.md
+❌ DEPLOIEMENT_RAPIDE.md
+❌ DEPLOIEMENT_VERCEL.md
+❌ DEPLOY_ZIP_TO_VERCEL.md
+❌ GUIDE_GITHUB_VERCEL.md
+❌ INSTRUCTIONS_SIMPLES_DEPLOIEMENT.txt
+❌ LISEZ_EN_PREMIER.txt
+❌ LISEZ_MOI_DEPLOIEMENT.txt
+❌ VERCEL_CONFIG_GUIDE.txt
+❌ VERCEL_DEPLOY_GUIDE.txt
+❌ VERCEL_ENV_VARIABLES.txt
+❌ VERCEL_SIMPLE_GUIDE.txt
+❌ VARIABLES_ENV_COPIER_COLLER.txt
+❌ TEST_AVANT_UPLOAD.sh
+❌ package.json.vercel
+❌ replit.md                  (Optionnel - doc Replit)
+
+═══════════════════════════════════════════════════════════════════
+
+📋 MÉTHODE SIMPLE - SÉLECTION RAPIDE
+───────────────────────────────────────────────────────────────────
+
+OPTION 1 : Tout sélectionner SAUF les exclusions
+
+1. Sélectionner TOUT (Ctrl+A ou Cmd+A)
+2. Maintenir Ctrl/Cmd + Cliquer pour DÉSÉLECTIONNER :
+   - dist/
+   - attached_assets/
+   - Tous les fichiers DEPLOIEMENT_*.md
+   - Tous les fichiers GUIDE_*.md
+   - Tous les fichiers VERCEL_*.txt
+   - Tous les fichiers LISEZ_*.txt
+   - TEST_AVANT_UPLOAD.sh
+   - package.json.vercel
+   - replit.md
+
+3. Glisser sur GitHub
+
+
+OPTION 2 : Sélection manuelle (RECOMMANDÉ)
+
+Sélectionner UNIQUEMENT ces éléments :
+
+📁 DOSSIERS (3) :
+   client/
+   server/
+   shared/
+
+📄 FICHIERS (13) :
+   .env.example
+   .gitignore
+   components.json
+   design_guidelines.md
+   drizzle.config.ts
+   package.json
+   package-lock.json
+   postcss.config.js
+   README.md
+   tailwind.config.ts
+   tsconfig.json
+   vercel.json
+   vite.config.ts
+
+TOTAL : 3 dossiers + 13 fichiers = 16 éléments à uploader
+
+═══════════════════════════════════════════════════════════════════
+
+🎯 RÉSUMÉ ULTRA-SIMPLE
+───────────────────────────────────────────────────────────────────
+
+UPLOADER :
+✅ client/, server/, shared/
+✅ Tous les fichiers .json, .ts, .js, .md (sauf guides)
+✅ .gitignore et .env.example
+
+NE PAS UPLOADER :
+❌ dist/
+❌ attached_assets/
+❌ Tous les guides DEPLOIEMENT_*, GUIDE_*, VERCEL_*, LISEZ_*
+❌ TEST_*.sh
+
+═══════════════════════════════════════════════════════════════════
+
+⚠️  IMPORTANT : Quand vous glissez sur GitHub
+
+Vous devez voir apparaître environ 16 éléments :
+- 3 dossiers (bleus)
+- 13 fichiers (blancs)
+
+Si vous voyez 30+ fichiers → Vous avez trop sélectionné
+Si vous voyez <10 fichiers → Il en manque
+
+═══════════════════════════════════════════════════════════════════

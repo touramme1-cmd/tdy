@@ -1,0 +1,150 @@
+═══════════════════════════════════════════════════════════════
+    CONFIGURATION VERCEL - Variables d'Environnement
+═══════════════════════════════════════════════════════════════
+
+✅ FICHIERS DÉJÀ CONFIGURÉS :
+- package.json (Node 20.x)
+- vercel.json
+- api/index.js
+- server/objectStorage.ts (utilise Google Cloud Storage)
+
+═══════════════════════════════════════════════════════════════
+📋 VARIABLES À AJOUTER DANS VERCEL
+═══════════════════════════════════════════════════════════════
+
+Allez dans : Vercel Dashboard → Votre Projet → Settings → Environment Variables
+
+────────────────────────────────────────────────────────────────
+1. BASE DE DONNÉES (OBLIGATOIRE)
+────────────────────────────────────────────────────────────────
+
+Nom: DATABASE_URL
+Valeur: postgresql://user:password@host:5432/database
+
+💡 Obtenez une base PostgreSQL gratuite sur :
+   - https://neon.tech (RECOMMANDÉ - gratuit, 3GB)
+   - https://supabase.com (gratuit, 500MB)
+
+────────────────────────────────────────────────────────────────
+2. SÉCURITÉ (OBLIGATOIRE)
+────────────────────────────────────────────────────────────────
+
+Nom: SESSION_SECRET
+Valeur: [Générez un texte aléatoire de 32 caractères]
+
+Exemple: kJ8mN2pQ4rT6vX9zA1cE3gH5iK7lM0oP
+
+Nom: NODE_ENV
+Valeur: production
+
+────────────────────────────────────────────────────────────────
+3. GOOGLE SHEETS - FORMULAIRE CONTACT (OBLIGATOIRE)
+────────────────────────────────────────────────────────────────
+
+Nom: GOOGLE_SHEET_WEBHOOK_URL
+Valeur: https://script.google.com/macros/s/AKfycbx1l-HBoUCEM9lSUJF7cdjejrXt9n_3qjo1Ox2pk1-YWL5BeUZ89rhVNp7Pcjb1NYWl/exec
+
+────────────────────────────────────────────────────────────────
+4. GOOGLE CLOUD STORAGE - UPLOAD CV (OPTIONNEL)
+────────────────────────────────────────────────────────────────
+
+⚠️ SANS CES VARIABLES, L'UPLOAD DE CV NE FONCTIONNERA PAS
+   Mais le reste de l'application fonctionnera normalement.
+
+──────────────────────────────────────────
+ÉTAPE A : Créer un projet Google Cloud
+──────────────────────────────────────────
+
+1. Allez sur https://console.cloud.google.com
+2. Créez un nouveau projet (gratuit)
+3. Notez le PROJECT_ID (ex: beno-consulting-123456)
+
+──────────────────────────────────────────
+ÉTAPE B : Créer un bucket de stockage
+──────────────────────────────────────────
+
+1. Menu → Cloud Storage → Create Bucket
+2. Nom du bucket : beno-consulting-cvs (ou autre nom unique)
+3. Région : europe-west1 (ou proche de vous)
+4. Cliquez Create
+
+──────────────────────────────────────────
+ÉTAPE C : Créer un Service Account
+──────────────────────────────────────────
+
+1. Menu → IAM & Admin → Service Accounts
+2. Create Service Account
+3. Nom: vercel-storage
+4. Rôle: Storage Object Admin
+5. Done
+6. Cliquez sur le service account créé
+7. Keys → Add Key → Create new key → JSON
+8. Un fichier JSON sera téléchargé - GARDEZ-LE!
+
+──────────────────────────────────────────
+ÉTAPE D : Ajouter dans Vercel
+──────────────────────────────────────────
+
+Nom: GCS_PROJECT_ID
+Valeur: [Votre PROJECT_ID de l'étape A]
+
+Nom: GCS_BUCKET_NAME
+Valeur: [Le nom de votre bucket de l'étape B]
+
+Nom: GCS_CREDENTIALS
+Valeur: [Copiez-collez TOUT le contenu du fichier JSON de l'étape C]
+
+Le JSON ressemble à ça :
+{
+  "type": "service_account",
+  "project_id": "beno-consulting-123456",
+  "private_key_id": "abc123...",
+  "private_key": "-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n",
+  "client_email": "vercel-storage@beno-consulting-123456.iam.gserviceaccount.com",
+  ...
+}
+
+═══════════════════════════════════════════════════════════════
+🚀 DÉPLOIEMENT
+═══════════════════════════════════════════════════════════════
+
+Sur vercel.com :
+
+1. New Project
+2. Import votre repository GitHub
+3. Ajoutez toutes les variables ci-dessus
+4. Deploy
+
+Ou via GitHub :
+
+git add .
+git commit -m "Ready for Vercel"
+git push origin main
+
+═══════════════════════════════════════════════════════════════
+⚠️ IMPORTANT
+═══════════════════════════════════════════════════════════════
+
+MINIMUM REQUIS pour que l'app fonctionne :
+✅ DATABASE_URL
+✅ SESSION_SECRET
+✅ NODE_ENV
+✅ GOOGLE_SHEET_WEBHOOK_URL
+
+OPTIONNEL (pour upload CV) :
+⭕ GCS_PROJECT_ID
+⭕ GCS_BUCKET_NAME
+⭕ GCS_CREDENTIALS
+
+Si vous ne configurez pas GCS maintenant, l'application fonctionnera
+mais l'upload de CV sera désactivé. Vous pouvez l'ajouter plus tard.
+
+═══════════════════════════════════════════════════════════════
+💰 COÛTS
+═══════════════════════════════════════════════════════════════
+
+Vercel Hobby: GRATUIT
+Neon Database: GRATUIT (3GB)
+Google Cloud Storage: ~0.01€-0.50€/mois (100 CVs)
+
+═══════════════════════════════════════════════════════════════

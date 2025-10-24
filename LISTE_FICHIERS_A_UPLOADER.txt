@@ -1,0 +1,75 @@
+═══════════════════════════════════════════════════════════════════
+    ✅ LISTE EXACTE - 16 ÉLÉMENTS À UPLOADER SUR GITHUB
+═══════════════════════════════════════════════════════════════════
+
+Sélectionnez UNIQUEMENT ces éléments dans votre dossier extrait :
+
+📁 DOSSIERS (3)
+───────────────────────────────────────────────────────────────────
+1.  client
+2.  server
+3.  shared
+
+📄 FICHIERS (13)
+───────────────────────────────────────────────────────────────────
+4.  .env.example
+5.  .gitignore
+6.  components.json
+7.  design_guidelines.md
+8.  drizzle.config.ts
+9.  package.json
+10. package-lock.json
+11. postcss.config.js
+12. README.md
+13. tailwind.config.ts
+14. tsconfig.json
+15. vercel.json
+16. vite.config.ts
+
+═══════════════════════════════════════════════════════════════════
+
+VÉRIFICATION : Vous devez avoir sélectionné exactement 16 éléments
+
+═══════════════════════════════════════════════════════════════════
+
+⚠️  NE PAS PRENDRE (À IGNORER COMPLÈTEMENT)
+───────────────────────────────────────────────────────────────────
+❌ dist                       (dossier)
+❌ attached_assets            (dossier)
+❌ api                        (dossier)
+❌ Tous les DEPLOIEMENT_*.md
+❌ Tous les GUIDE_*.md
+❌ Tous les VERCEL_*.txt
+❌ Tous les LISEZ_*.txt
+❌ Tous les INSTRUCTIONS_*.txt
+❌ TEST_AVANT_UPLOAD.sh
+❌ package.json.vercel
+❌ replit.md
+
+═══════════════════════════════════════════════════════════════════
+
+💡 ASTUCE : Dans votre Finder/Explorateur
+
+1. Vue en liste (pas icônes)
+2. Trier par nom
+3. Maintenir Cmd/Ctrl pendant que vous cliquez sur :
+   - client
+   - server
+   - shared
+   - .env.example
+   - .gitignore
+   - components.json
+   - design_guidelines.md
+   - drizzle.config.ts
+   - package.json
+   - package-lock.json
+   - postcss.config.js
+   - README.md
+   - tailwind.config.ts
+   - tsconfig.json
+   - vercel.json
+   - vite.config.ts
+
+4. Glisser les 16 éléments sélectionnés sur GitHub
+
+═══════════════════════════════════════════════════════════════════

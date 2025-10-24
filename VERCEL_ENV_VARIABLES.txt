@@ -1,0 +1,99 @@
+═══════════════════════════════════════════════════════════════════
+    📋 VARIABLES D'ENVIRONNEMENT POUR VERCEL
+═══════════════════════════════════════════════════════════════════
+
+⚠️  IMPORTANT : Ces variables doivent être ajoutées dans Vercel
+    Vercel → Project → Settings → Environment Variables
+
+═══════════════════════════════════════════════════════════════════
+
+VARIABLE 1 : DATABASE_URL
+───────────────────────────────────────────────────────────────────
+Key: DATABASE_URL
+
+Value:
+postgresql://neondb_owner:npg_bjzeivPXgq21@ep-proud-poetry-a4f0e8g3-pooler.us-east-1.aws.neon.tech/neondb?sslmode=require
+
+Environment: Production, Preview, Development (tous)
+───────────────────────────────────────────────────────────────────
+
+
+VARIABLE 2 : SESSION_SECRET
+───────────────────────────────────────────────────────────────────
+Key: SESSION_SECRET
+
+Value:
+8b86a3a4d7adeb903db0b0e35f82ff54af6830804e8d20bbf2dce89e8641e8bc
+
+Environment: Production, Preview, Development (tous)
+───────────────────────────────────────────────────────────────────
+
+
+VARIABLE 3 : NODE_ENV
+───────────────────────────────────────────────────────────────────
+Key: NODE_ENV
+
+Value:
+production
+
+Environment: Production uniquement
+───────────────────────────────────────────────────────────────────
+
+
+VARIABLE 4 : GOOGLE_SHEET_WEBHOOK_URL
+───────────────────────────────────────────────────────────────────
+Key: GOOGLE_SHEET_WEBHOOK_URL
+
+Value:
+https://script.google.com/macros/s/AKfycbx1l-HBoUCEM9lSUJF7cdjejrXt9n_3qjo1Ox2pk1-YWL5BeUZ89rhVNp7Pcjb1NYWl/exec
+
+Environment: Production, Preview, Development (tous)
+───────────────────────────────────────────────────────────────────
+
+
+═══════════════════════════════════════════════════════════════════
+    📖 COMMENT AJOUTER CES VARIABLES DANS VERCEL
+═══════════════════════════════════════════════════════════════════
+
+Méthode 1️⃣ : Une par une (RECOMMANDÉ)
+────────────────────────────────────────────────────────────────────
+1. Aller sur Vercel → Votre projet → Settings
+2. Cliquer sur "Environment Variables" (menu gauche)
+3. Pour chaque variable ci-dessus :
+   a. Cliquer "Add New" ou "Add Another"
+   b. Copier la Key
+   c. Copier la Value
+   d. Sélectionner les environments (Production/Preview/Development)
+   e. Cliquer "Save"
+
+
+Méthode 2️⃣ : Copier-coller en bloc./
+────────────────────────────────────────────────────────────────────
+Sur Vercel, il y a une option "Paste .env" :
+
+DATABASE_URL="postgresql://neondb_owner:npg_bjzeivPXgq21@ep-proud-poetry-a4f0e8g3-pooler.us-east-1.aws.neon.tech/neondb?sslmode=require"
+SESSION_SECRET="8b86a3a4d7adeb903db0b0e35f82ff54af6830804e8d20bbf2dce89e8641e8bc"
+NODE_ENV="production"
+GOOGLE_SHEET_WEBHOOK_URL="https://script.google.com/macros/s/AKfycbx1l-HBoUCEM9lSUJF7cdjejrXt9n_3qjo1Ox2pk1-YWL5BeUZ89rhVNp7Pcjb1NYWl/exec"
+
+
+═══════════════════════════════════════════════════════════════════
+    ✅ VÉRIFICATION
+═══════════════════════════════════════════════════════════════════
+
+Après avoir ajouté les 4 variables, vous devriez voir :
+
+✅ DATABASE_URL              (Production, Preview, Development)
+✅ SESSION_SECRET            (Production, Preview, Development)
+✅ NODE_ENV                  (Production)
+✅ GOOGLE_SHEET_WEBHOOK_URL  (Production, Preview, Development)
+
+Total : 4 variables d'environnement
+
+═══════════════════════════════════════════════════════════════════
+
+⚠️  NOTE DE SÉCURITÉ :
+Ces secrets ne doivent JAMAIS être committés dans GitHub.
+Le fichier .gitignore exclut automatiquement les fichiers .env
+
+═══════════════════════════════════════════════════════════════════
