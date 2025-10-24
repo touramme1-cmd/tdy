@@ -4,7 +4,14 @@ import { drizzle } from 'drizzle-orm/neon-serverless';
 import ws from "ws";
 import * as schema from "@shared/schema";
 
-neonConfig.webSocketConstructor = ws;
+// Configure for Vercel serverless (use fetch) or local dev (use WebSocket)
+if (process.env.VERCEL) {
+  // Vercel serverless: use HTTP pooling instead of WebSocket
+  neonConfig.fetchConnectionCache = true;
+} else {
+  // Local development: use WebSocket
+  neonConfig.webSocketConstructor = ws;
+}
 
 if (!process.env.DATABASE_URL) {
   throw new Error(
